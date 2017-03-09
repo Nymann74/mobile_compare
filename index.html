@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<title>Smoothed D3.js Radar Chart</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 11px;
+				font-weight: 300;
+				fill: #242424;
+				text-align: center;
+				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+				cursor: default;
+			}
+
+			.legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+
+			.tooltip {
+				fill: #333333;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+
+			}
+
+
+		</style>
+
+	</head>
+	<body>
+
+		<div class="radarChart"></div>
+
+
+		<script src="radarChart.js"></script>
+		<script>
+			//////////////////////////////////////////////////////////////
+			//////////////////////// Set-Up //////////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+
+			//////////////////////////////////////////////////////////////
+			////////////////////////// Data //////////////////////////////
+			//////////////////////////////////////////////////////////////
+
+
+
+			var data = [
+  {
+    "name": "Native",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 1
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 1
+      },
+      {
+        "axis": "UX Experience",
+        "value": 5
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 5
+      },
+      {
+        "axis": "Fast Access to Platform Capabilities",
+        "value": 5
+      },
+      {
+        "axis": "General purpose",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "Webview",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 5
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 5
+      },
+      {
+        "axis": "UX Experience",
+        "value": 1
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 1
+      },
+      {
+        "axis": "Access to new API",
+        "value": 2
+      },
+      {
+          "axis": "General purpose",
+          "value": 3
+      }
+
+    ]
+  },
+  {
+    "name": "Xamarin",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 1
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 3
+      },
+      {
+        "axis": "UX Experience",
+        "value": 4
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 4
+      },
+      {
+        "axis": "Access to new API",
+        "value": 3
+      },
+      {
+          "axis": "General purpose",
+          "value": 5
+      }
+
+
+    ]
+  },
+  {
+    "name": "Xamarin forms",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 1
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 4
+      },
+      {
+        "axis": "UX Experience",
+        "value": 3
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 4
+      },
+      {
+        "axis": "Access to new API",
+        "value": 3
+      },
+      {
+          "axis": "General purpose",
+          "value": 2
+      }
+
+    ]
+  },
+  {
+    "name": "Unity",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 1
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 1
+      },
+      {
+        "axis": "UX Experience",
+        "value": 5
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 5
+      },
+      {
+        "axis": "Access to new API",
+        "value": 3
+      }
+      ,
+      {
+          "axis": "General purpose",
+          "value": 1
+      }
+
+
+    ]
+  }
+  ,
+  {
+    "name": "React Native",
+    "dt": [
+      {
+        "axis": "Fast Time-2-Market",
+        "value": 1
+      },
+      {
+        "axis": "Low Cost of development",
+        "value": 3
+      },
+      {
+        "axis": "UX Experience",
+        "value": 4
+      },
+      {
+        "axis": "Fast Runtime Speed",
+        "value": 4
+      },
+      {
+        "axis": "Access to new API",
+        "value": 3
+      }
+      ,
+      {
+          "axis": "General purpose",
+          "value": 4
+      }
+
+    ]
+  }
+];
+			//////////////////////////////////////////////////////////////
+			//////////////////// Draw the Chart //////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 5,
+			  levels: 5,
+			  roundStrokes: true,
+			};
+			//Call function x$to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+		</script>
+	</body>
+</html>
